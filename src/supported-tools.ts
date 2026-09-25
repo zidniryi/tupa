@@ -13,7 +13,6 @@ export const PLANNED_TOOLS: PlannedTool[] = [
   { id: "aider", name: "Aider" },
   { id: "droid", name: "Factory Droid" },
   { id: "amp", name: "Sourcegraph Amp" },
-  { id: "kiro-cli", name: "Kiro CLI" },
   { id: "crush", name: "Crush" },
   { id: "pi", name: "Pi" },
   { id: "vibe", name: "Mistral Vibe" },

@@ -4,10 +4,11 @@ import { claudeCodeAdapter } from "./claude-code.js";
 import { codexAdapter } from "./codex.js";
 import { cursorAdapter } from "./cursor.js";
 import { kiloAdapter } from "./kilo.js";
+import { kiroAdapter } from "./kiro.js";
 import { opencodeAdapter } from "./opencode.js";
 
 // Adapters are added one at a time: Claude Code, Antigravity CLI (agy), opencode,
-// Codex CLI, Cursor CLI, Kilo CLI.
+// Codex CLI, Cursor CLI, Kilo CLI, Kiro CLI.
 export const adapters: Adapter[] = [
   claudeCodeAdapter,
   agyAdapter,
@@ -15,4 +16,5 @@ export const adapters: Adapter[] = [
   codexAdapter,
   cursorAdapter,
   kiloAdapter,
+  kiroAdapter,
 ];

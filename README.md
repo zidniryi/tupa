@@ -15,7 +15,7 @@ without copy-pasting context by hand.
 ```
 $ tupa
   ▄█▄    ▄█▄   tupa
-▐████████████▌ v1.4.0
+▐████████████▌ v1.5.0
 ▐█ ◉ ████ ◉ █▌ /Users/mac/Project
 ▐███▄█▀▀█▄███▌
  ▀██▄◖██◗▄██▀
@@ -77,6 +77,7 @@ Run `tupa support` to check what's detected on your machine.
 | Codex CLI | `~/.codex/sessions` | ✅ Supported |
 | Cursor CLI | `~/.cursor/chats`, `~/.cursor/projects/*/agent-transcripts` | ✅ Supported |
 | Kilo CLI | `~/.local/share/kilo` | ✅ Supported |
+| Kiro CLI | `~/.kiro/sessions/cli` | ✅ Supported |
 | Gemini CLI | — | 🔜 Planned |
 | GitHub Copilot CLI | — | 🔜 Planned |
 | Kimi Code CLI | — | 🔜 Planned |
@@ -85,7 +86,6 @@ Run `tupa support` to check what's detected on your machine.
 | Aider | — | 🔜 Planned |
 | Factory Droid | — | 🔜 Planned |
 | Sourcegraph Amp | — | 🔜 Planned |
-| Kiro CLI | — | 🔜 Planned |
 | Crush | — | 🔜 Planned |
 | Pi | — | 🔜 Planned |
 | Mistral Vibe | — | 🔜 Planned |

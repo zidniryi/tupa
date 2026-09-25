@@ -1,0 +1,5 @@
+{"version":"v1","kind":"Prompt","data":{"message_id":"m1","content":[{"kind":"text","data":"Add a health check endpoint to the API"}]}}
+this is not valid json and must be skipped
+{"version":"v1","kind":"AssistantMessage","data":{"message_id":"m2","content":[{"kind":"text","data":"I'll add a GET /health route."},{"kind":"toolUse","data":{"toolUseId":"t1","name":"write","input":{"command":"create","path":"/tmp/fixture-project/src/health.ts"}}}]}}
+{"version":"v1","kind":"ToolResults","data":{"message_id":"m3","content":[{"kind":"toolResult","data":{"toolUseId":"t1","content":[]}}]}}
+{"version":"v1","kind":"AssistantMessage","data":{"message_id":"m4","content":[{"kind":"text","data":"Done, added the /health route."}]}}

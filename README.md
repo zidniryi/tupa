@@ -55,13 +55,14 @@ npm i -g @zidniryi/tupa
 ## Usage
 
 ```bash
-tupa list              # recent sessions for the current directory
-tupa list --json       # machine-readable, no banner/spinner
-tupa save              # write HANDOFF.md for the most recent session
-tupa resume            # resume the most recent session in its own tool
-tupa resume <id>       # resume a specific session
-tupa resume --to codex # write HANDOFF.md and switch tools
-tupa support           # show which AI coding agent CLIs are supported
+tupa                    # animated welcome screen with a quick command overview
+tupa list               # recent sessions for the current directory
+tupa list --json        # machine-readable, no banner/spinner
+tupa save               # write HANDOFF.md for the most recent session
+tupa resume             # resume the most recent session in its own tool
+tupa resume <id>        # resume a specific session
+tupa resume --to codex  # write HANDOFF.md and switch tools
+tupa support            # show which AI coding agent CLIs are supported
 ```
 
 ## Supported tools
@@ -104,3 +105,10 @@ npm run typecheck
 npm test
 npm link           # test locally as `tupa`
 ```
+
+## Contributing
+
+Bug reports, adapter requests, and PRs are welcome — see
+[CONTRIBUTING.md](CONTRIBUTING.md) for the dev setup and the step-by-step guide
+for adding a new adapter. To report a bug or ask for a new tool to be supported,
+[open an issue](https://github.com/zidniryi/tupa/issues/new/choose).

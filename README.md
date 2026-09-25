@@ -2,7 +2,8 @@
 
 [![npm version](https://img.shields.io/npm/v/%40zidniryi%2Ftupa.svg)](https://www.npmjs.com/package/@zidniryi/tupa)
 [![GitHub release](https://img.shields.io/github/v/release/zidniryi/tupa)](https://github.com/zidniryi/tupa/releases)
-[![license](https://img.shields.io/npm/l/%40zidniryi%2Ftupa.svg)](https://github.com/zidniryi/tupa/blob/main/LICENSE)
+[![license: MIT](https://img.shields.io/badge/license-MIT-22c55e.svg)](https://github.com/zidniryi/tupa/blob/main/LICENSE)
+[![AI agent CLI](https://img.shields.io/badge/%F0%9F%A4%96-AI%20agent%20CLI-8b5cf6.svg)](https://github.com/zidniryi/tupa)
 
 *Stash it. Resume it. Any AI agent.*
 

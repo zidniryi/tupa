@@ -31,30 +31,18 @@ Run `tupa <command> --help` for details, or `tupa list` to get started.
 ```
 
 ```
-$ tupa support
-Supported now
-  ✔ Claude Code        detected on this machine
-  ✔ Antigravity CLI    detected on this machine
-  ✔ opencode           detected on this machine
-  ✔ Codex CLI          detected on this machine
-  ✔ Cursor CLI         detected on this machine
-  ✔ Kilo CLI           detected on this machine
-
-Planned, not yet supported
-  ○ Gemini CLI
-  ○ GitHub Copilot CLI
-  ○ Kimi Code CLI
-  ○ Qwen Code
-  ○ Goose
-  ○ Aider
-  ○ Factory Droid
-  ○ Sourcegraph Amp
-  ○ Kiro CLI
-  ○ Crush
-  ○ Pi
-  ○ Mistral Vibe
-
-Adapters are read-only and added one at a time.
+$ tupa list
+✔ Found 5 sessions across 4 tools
+1. [cursor-agent] Landing Page Redesign  10m ago
+   f1a2b3c4-5d6e-4f70-8a9b-1c2d3e4f5061
+2. [claude-code] Fix Stripe Webhook Retry Bug  18h ago
+   a7b8c9d0-1e2f-4a3b-9c8d-7e6f5a4b3c21
+3. [claude-code] Add Dark Mode Toggle  6d ago
+   3c4d5e6f-7a8b-4c9d-8e7f-6a5b4c3d2e1f
+4. [opencode] Refactor Auth Middleware  6d ago
+   b2c3d4e5-6f7a-4b8c-9d0e-1f2a3b4c5d6e
+5. [codex] Set Up CI Pipeline for Monorepo  10mo ago
+   019a6c3f-1234-7d60-81cd-000000000000
 ```
 
 ## Install
@@ -75,14 +63,36 @@ tupa resume --to codex # write HANDOFF.md and switch tools
 tupa support           # show which AI coding agent CLIs are supported
 ```
 
-## Status
+## Supported tools
 
-Early scaffold. Claude Code, Antigravity CLI (`agy`), opencode, Codex CLI, Cursor
-CLI, and Kilo CLI adapters are implemented; more tools are added one at a time.
-Read-only access to other tools' session storage, no network calls, no telemetry.
-The opencode and Kilo adapters (schema-compatible forks, sharing one
-implementation) use `node:sqlite`, which needs Node >= 22.5 — on older Node they
-just report as "not detected" instead of failing.
+Run `tupa support` to check what's detected on your machine.
+
+| Tool | Session data read from | Status |
+| --- | --- | --- |
+| Claude Code | `~/.claude/projects` | ✅ Supported |
+| Antigravity CLI (`agy`) | `~/.gemini/antigravity-cli` | ✅ Supported |
+| opencode | `~/.local/share/opencode` | ✅ Supported |
+| Codex CLI | `~/.codex/sessions` | ✅ Supported |
+| Cursor CLI | `~/.cursor/chats`, `~/.cursor/projects/*/agent-transcripts` | ✅ Supported |
+| Kilo CLI | `~/.local/share/kilo` | ✅ Supported |
+| Gemini CLI | — | 🔜 Planned |
+| GitHub Copilot CLI | — | 🔜 Planned |
+| Kimi Code CLI | — | 🔜 Planned |
+| Qwen Code | — | 🔜 Planned |
+| Goose | — | 🔜 Planned |
+| Aider | — | 🔜 Planned |
+| Factory Droid | — | 🔜 Planned |
+| Sourcegraph Amp | — | 🔜 Planned |
+| Kiro CLI | — | 🔜 Planned |
+| Crush | — | 🔜 Planned |
+| Pi | — | 🔜 Planned |
+| Mistral Vibe | — | 🔜 Planned |
+
+New adapters are added one at a time and verified against real local session data
+before shipping. All of them are read-only — no network calls, no telemetry. The
+opencode and Kilo adapters (schema-compatible forks that share one implementation)
+use `node:sqlite`, which needs Node >= 22.5; on older Node they just show as "not
+detected" instead of failing.
 
 ## Development
 

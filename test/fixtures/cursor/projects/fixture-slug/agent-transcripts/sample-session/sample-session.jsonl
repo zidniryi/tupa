@@ -1,0 +1,4 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<timestamp>Thu, Jan 1, 2026</timestamp>\n<user_query>\nAdd a health check endpoint to the API\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"I'll add a GET /health route."},{"type":"tool_use","name":"Write","input":{"path":"/tmp/fixture-project/src/health.ts","contents":"export const health = () => ({ ok: true });"}}]}}
+this is not valid json and must be skipped
+{"role":"assistant","message":{"content":[{"type":"text","text":"Done, added the /health route."}]}}

@@ -1,5 +1,5 @@
 {
-  "name": "tupa",
+  "name": "@zidniryi/tupa",
   "version": "1.0.0",
   "description": "Stash and resume AI agent sessions across Claude Code, Codex, opencode, and more.",
   "type": "module",

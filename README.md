@@ -29,7 +29,7 @@ Run `tupa <command> --help` for details, or `tupa list` to get started.
 ## Install
 
 ```bash
-npm i -g tupa
+npm i -g @zidniryi/tupa
 ```
 
 ## Usage

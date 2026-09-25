@@ -1,29 +1,32 @@
-# agentresume
+# tupa
 
-Save and resume AI coding agent sessions across tools — Claude Code, Codex, opencode,
-Antigravity/Gemini, Copilot CLI, and more — without copy-pasting context by hand.
+*Stash it. Resume it. Any AI agent.*
+
+Stash and resume AI agent sessions across Claude Code, Codex, opencode, and more —
+without copy-pasting context by hand.
 
 ## Install
 
 ```bash
-npm i -g agentresume
+npm i -g tupa
 ```
 
 ## Usage
 
 ```bash
-agentresume list              # recent sessions for the current directory
-agentresume list --json       # machine-readable, no banner/spinner
-agentresume save              # write HANDOFF.md for the most recent session
-agentresume resume            # resume the most recent session in its own tool
-agentresume resume <id>       # resume a specific session
-agentresume resume --to codex # write HANDOFF.md and switch tools
+tupa list              # recent sessions for the current directory
+tupa list --json       # machine-readable, no banner/spinner
+tupa save              # write HANDOFF.md for the most recent session
+tupa resume            # resume the most recent session in its own tool
+tupa resume <id>       # resume a specific session
+tupa resume --to codex # write HANDOFF.md and switch tools
+tupa support           # show which AI coding agent CLIs are supported
 ```
 
 ## Status
 
-Early scaffold. Only the Claude Code adapter is implemented so far; more tools are
-added one at a time (see `CLAUDE.md`). Read-only access to other tools' session
+Early scaffold. Claude Code and Antigravity CLI (`agy`) adapters are implemented;
+more tools are added one at a time. Read-only access to other tools' session
 storage, no network calls, no telemetry.
 
 ## Development
@@ -33,5 +36,5 @@ npm i
 npm run build      # tsup src/cli.ts --format esm --clean
 npm run typecheck
 npm test
-npm link           # test locally as `agentresume`
+npm link           # test locally as `tupa`
 ```

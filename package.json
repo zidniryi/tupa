@@ -1,11 +1,11 @@
 {
-  "name": "agentresume",
+  "name": "tupa",
   "version": "0.1.0",
-  "description": "Save and resume AI coding agent sessions across tools: Claude Code, Codex, opencode, Antigravity/Gemini, Copilot CLI, and more.",
+  "description": "Stash and resume AI agent sessions across Claude Code, Codex, opencode, and more.",
   "type": "module",
   "author": "zidniryi <zidniryi123@gmail.com>",
   "bin": {
-    "agentresume": "dist/cli.js"
+    "tupa": "dist/cli.js"
   },
   "files": [
     "dist"
@@ -21,14 +21,15 @@
     "prepublishOnly": "npm run build"
   },
   "keywords": [
-    "cli",
-    "claude-code",
+    "ai",
+    "agent",
+    "resume",
+    "session",
+    "handoff",
+    "claude",
     "codex",
     "opencode",
-    "ai-agent",
-    "session",
-    "resume",
-    "handoff"
+    "cli"
   ],
   "license": "MIT",
   "dependencies": {

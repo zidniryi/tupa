@@ -4,8 +4,9 @@ import { resolve } from "node:path";
 import { Command } from "commander";
 import { adapters } from "./adapters/index.js";
 import { buildHandoffMarkdown, writeHandoff } from "./handoff.js";
+import { PLANNED_TOOLS } from "./supported-tools.js";
 import type { Adapter, SessionSummary } from "./types.js";
-import { badge, banner, configureUi, fail, ok, printSessions, welcome, withSpinner } from "./ui.js";
+import { badge, banner, configureUi, fail, ok, printSessions, printSupport, welcome, withSpinner } from "./ui.js";
 
 const VERSION = "0.1.0";
 
@@ -37,8 +38,8 @@ function runInteractive(command: string, cwd: string): void {
 
 const program = new Command();
 program
-  .name("agentresume")
-  .description("Save and resume AI coding agent sessions across tools")
+  .name("tupa")
+  .description("Stash and resume AI agent sessions across Claude Code, Codex, opencode, and more.")
   .version(VERSION)
   .option("--no-color", "disable colored/animated output")
   .option("--quiet", "skip the startup banner");
@@ -153,7 +154,19 @@ program
     runInteractive(adapter.resumeCommand(target.id, cwd), cwd);
   });
 
-// Bare `agentresume` with no args/flags: show the animated welcome screen instead of
+program
+  .command("support")
+  .alias("about")
+  .description("Show which AI coding agent CLIs are supported")
+  .action(async () => {
+    await banner(VERSION, process.cwd());
+    console.log("");
+    const detected = await Promise.all(adapters.map((a) => a.detect()));
+    const implemented = adapters.map((a, i) => ({ id: a.id, name: a.name, detected: detected[i] ?? false }));
+    printSupport(implemented, PLANNED_TOOLS);
+  });
+
+// Bare `tupa` with no args/flags: show the animated welcome screen instead of
 // commander's default (plain) help.
 if (process.argv.length === 2) {
   await welcome(VERSION);

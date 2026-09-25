@@ -18,30 +18,55 @@ function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-const MASCOT = [" ▄▀▀▄ ", " █▄▄█ ", " ▀  ▀ "];
+// A squirrel face: pointed ears on top, two eyes, and round puffed cheek pouches
+// at the chin — where a squirrel stashes its acorns, a nod to "save".
+const MASCOT = [
+  "  ▄█▄    ▄█▄  ",
+  "▐████████████▌",
+  "▐█ ◉ ████ ◉ █▌",
+  "▐███▄█▀▀█▄███▌",
+  " ▀██▄◖██◗▄██▀ ",
+];
+const BODY_GLYPHS = new Set(["█", "▄", "▀", "▐", "▌"]);
+const CHEEK_GLYPHS = new Set(["◖", "◗"]);
+
+function colorizeMascotLine(line: string): string {
+  if (!colorEnabled) return line;
+  let out = "";
+  for (const ch of line) {
+    if (CHEEK_GLYPHS.has(ch)) out += pc.yellow(ch);
+    else if (BODY_GLYPHS.has(ch)) out += pc.green(ch);
+    else out += ch;
+  }
+  return out;
+}
 
 export async function banner(version: string, cwd: string): Promise<void> {
   if (quiet) return;
-  const wordmark = colorEnabled ? gradient("cyan", "magenta")("agentresume") : "agentresume";
+  const width = Math.max(...MASCOT.map((l) => l.length));
+  const wordmark = colorEnabled ? gradient(["#22c55e", "#eab308"])("tupa") : "tupa";
   const dim = (s: string) => (colorEnabled ? pc.dim(s) : s);
-  const lines = [`${MASCOT[0]} ${wordmark}`, `${MASCOT[1]} ${dim(`v${version}`)}`, `${MASCOT[2]} ${dim(cwd)}`];
-  for (const line of lines) {
-    console.log(line);
-    if (colorEnabled) await sleep(70);
+  const suffixes = [wordmark, dim(`v${version}`), dim(cwd)];
+  for (let i = 0; i < MASCOT.length; i++) {
+    const line = colorizeMascotLine(MASCOT[i]!.padEnd(width));
+    const suffix = suffixes[i] ?? "";
+    console.log(suffix ? `${line} ${suffix}` : line);
+    if (colorEnabled) await sleep(25);
   }
 }
 
-const TAGLINE = "Save and resume AI coding agent sessions across tools.";
+const TAGLINE = "Stash it. Resume it. Any AI agent.";
 const COMMANDS: [string, string][] = [
   ["list", "List recent sessions for the current directory"],
   ["save", "Write HANDOFF.md for the most recent session"],
   ["resume [id]", "Resume a session — add --to <tool> to switch tools"],
+  ["support", "Show which AI coding agent CLIs are supported"],
 ];
 
-/** Shown for a bare `agentresume` invocation, in place of commander's default help. */
+/** Shown for a bare `tupa` invocation, in place of commander's default help. */
 export async function welcome(version: string): Promise<void> {
   if (quiet) {
-    console.log(`agentresume — ${TAGLINE}`);
+    console.log(`tupa — ${TAGLINE}`);
     return;
   }
 
@@ -64,7 +89,7 @@ export async function welcome(version: string): Promise<void> {
   }
 
   console.log("");
-  const hint = "Run `agentresume <command> --help` for details, or `agentresume list` to get started.";
+  const hint = "Run `tupa <command> --help` for details, or `tupa list` to get started.";
   console.log(colorEnabled ? pc.dim(hint) : hint);
 }
 
@@ -118,6 +143,38 @@ export async function withSpinner<T>(text: string, fn: () => Promise<T>): Promis
     spinner.fail();
     throw err;
   }
+}
+
+export interface AdapterStatusRow {
+  id: string;
+  name: string;
+  detected: boolean;
+}
+
+export interface PlannedToolRow {
+  id: string;
+  name: string;
+}
+
+export function printSupport(implemented: AdapterStatusRow[], planned: PlannedToolRow[]): void {
+  const dim = (s: string) => (colorEnabled ? pc.dim(s) : s);
+  const green = (s: string) => (colorEnabled ? pc.green(s) : s);
+
+  console.log(colorEnabled ? pc.bold("Supported now") : "Supported now");
+  for (const tool of implemented) {
+    const mark = tool.detected ? green("✔") : dim("○");
+    const status = tool.detected ? "detected on this machine" : "not detected on this machine";
+    console.log(`  ${mark} ${tool.name.padEnd(18)} ${dim(status)}`);
+  }
+
+  console.log("");
+  console.log(colorEnabled ? pc.bold("Planned, not yet supported") : "Planned, not yet supported");
+  for (const tool of planned) {
+    console.log(`  ${dim("○")} ${dim(tool.name)}`);
+  }
+
+  console.log("");
+  console.log(dim("Adapters are read-only and added one at a time."));
 }
 
 export function ok(message: string): void {

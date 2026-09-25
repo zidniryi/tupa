@@ -5,6 +5,27 @@
 Stash and resume AI agent sessions across Claude Code, Codex, opencode, and more —
 without copy-pasting context by hand.
 
+## Preview
+
+```
+$ tupa
+  ▄█▄    ▄█▄   tupa
+▐████████████▌ v1.0.0
+▐█ ◉ ████ ◉ █▌ /Users/mac/Project
+▐███▄█▀▀█▄███▌
+ ▀██▄◖██◗▄██▀
+
+Stash it. Resume it. Any AI agent.
+
+Commands
+  list           List recent sessions for the current directory
+  save           Write HANDOFF.md for the most recent session
+  resume [id]    Resume a session — add --to <tool> to switch tools
+  support        Show which AI coding agent CLIs are supported
+
+Run `tupa <command> --help` for details, or `tupa list` to get started.
+```
+
 ## Install
 
 ```bash
@@ -38,4 +59,3 @@ npm run typecheck
 npm test
 npm link           # test locally as `tupa`
 ```
-# tupa

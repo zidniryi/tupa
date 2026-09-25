@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 import { spawn } from "node:child_process";
-import { resolve } from "node:path";
+import { readFileSync } from "node:fs";
+import { dirname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { Command } from "commander";
 import { adapters } from "./adapters/index.js";
 import { buildHandoffMarkdown, writeHandoff } from "./handoff.js";
@@ -8,7 +10,11 @@ import { PLANNED_TOOLS } from "./supported-tools.js";
 import type { Adapter, SessionSummary } from "./types.js";
 import { badge, banner, configureUi, fail, ok, printSessions, printSupport, welcome, withSpinner } from "./ui.js";
 
-const VERSION = "0.1.0";
+// Same relative path works from src/cli.ts (dev, via tsx) and dist/cli.js (built),
+// since package.json always ships one level up in both layouts.
+const here = dirname(fileURLToPath(import.meta.url));
+const pkg = JSON.parse(readFileSync(join(here, "..", "package.json"), "utf8")) as { version: string };
+const VERSION = pkg.version;
 
 async function detectAdapters(): Promise<Adapter[]> {
   const flags = await Promise.all(adapters.map((a) => a.detect()));

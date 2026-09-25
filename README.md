@@ -1,5 +1,9 @@
 # tupa
 
+[![npm version](https://img.shields.io/npm/v/%40zidniryi%2Ftupa.svg)](https://www.npmjs.com/package/@zidniryi/tupa)
+[![GitHub release](https://img.shields.io/github/v/release/zidniryi/tupa)](https://github.com/zidniryi/tupa/releases)
+[![license](https://img.shields.io/npm/l/%40zidniryi%2Ftupa.svg)](https://github.com/zidniryi/tupa/blob/main/LICENSE)
+
 *Stash it. Resume it. Any AI agent.*
 
 Stash and resume AI agent sessions across Claude Code, Codex, opencode, and more —

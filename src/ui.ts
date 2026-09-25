@@ -100,6 +100,7 @@ const TOOL_COLORS: Record<string, (s: string) => string> = {
   agy: (s) => pc.bgBlue(pc.white(s)),
   copilot: (s) => pc.bgMagenta(pc.white(s)),
   "cursor-agent": (s) => pc.bgRed(pc.white(s)),
+  kilo: (s) => pc.bgBlack(pc.white(s)),
 };
 
 export function badge(tool: string): string {

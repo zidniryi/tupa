@@ -14,7 +14,7 @@ without copy-pasting context by hand.
 ```
 $ tupa
   ▄█▄    ▄█▄   tupa
-▐████████████▌ v1.3.0
+▐████████████▌ v1.4.0
 ▐█ ◉ ████ ◉ █▌ /Users/mac/Project
 ▐███▄█▀▀█▄███▌
  ▀██▄◖██◗▄██▀
@@ -38,6 +38,7 @@ Supported now
   ✔ opencode           detected on this machine
   ✔ Codex CLI          detected on this machine
   ✔ Cursor CLI         detected on this machine
+  ✔ Kilo CLI           detected on this machine
 
 Planned, not yet supported
   ○ Gemini CLI
@@ -76,11 +77,12 @@ tupa support           # show which AI coding agent CLIs are supported
 
 ## Status
 
-Early scaffold. Claude Code, Antigravity CLI (`agy`), opencode, Codex CLI, and
-Cursor CLI adapters are implemented; more tools are added one at a time. Read-only
-access to other tools' session storage, no network calls, no telemetry. The
-opencode adapter uses `node:sqlite`, which needs Node >= 22.5 — on older Node it
-just reports opencode as "not detected" instead of failing.
+Early scaffold. Claude Code, Antigravity CLI (`agy`), opencode, Codex CLI, Cursor
+CLI, and Kilo CLI adapters are implemented; more tools are added one at a time.
+Read-only access to other tools' session storage, no network calls, no telemetry.
+The opencode and Kilo adapters (schema-compatible forks, sharing one
+implementation) use `node:sqlite`, which needs Node >= 22.5 — on older Node they
+just report as "not detected" instead of failing.
 
 ## Development
 

@@ -1,0 +1,8 @@
+{"type":"mode","mode":"normal","sessionId":"sample-session"}
+{"type":"file-history-snapshot","messageId":"m0","snapshot":{"messageId":"m0","trackedFileBackups":{},"timestamp":"2026-01-01T00:00:00.000Z"}}
+{"parentUuid":null,"isSidechain":false,"type":"user","cwd":"/tmp/fixture-project","gitBranch":"main","timestamp":"2026-01-01T00:00:01.000Z","message":{"role":"user","content":[{"type":"text","text":"Add a health check endpoint to the API"}]}}
+{"parentUuid":"m1","isSidechain":false,"type":"assistant","cwd":"/tmp/fixture-project","gitBranch":"main","timestamp":"2026-01-01T00:00:05.000Z","message":{"role":"assistant","content":[{"type":"text","text":"I'll add a GET /health route."},{"type":"tool_use","name":"Write","input":{"file_path":"/tmp/fixture-project/src/health.ts","content":"export const health = () => ({ ok: true });"}}]}}
+this is not valid json and must be skipped
+{"parentUuid":"m2","isSidechain":false,"type":"user","cwd":"/tmp/fixture-project","gitBranch":"main","timestamp":"2026-01-01T00:00:10.000Z","message":{"role":"user","content":[{"type":"text","text":"Also wire it into the router"}]}}
+{"parentUuid":"m3","isSidechain":false,"type":"assistant","cwd":"/tmp/fixture-project","gitBranch":"main","timestamp":"2026-01-01T00:00:15.000Z","message":{"role":"assistant","content":[{"type":"text","text":"Done, wired /health into the router."},{"type":"tool_use","name":"Edit","input":{"file_path":"/tmp/fixture-project/src/router.ts","old_string":"x","new_string":"y"}}]}}
+{"type":"ai-title","aiTitle":"Add /health endpoint","sessionId":"sample-session"}

@@ -1,0 +1,47 @@
+{
+  "name": "agentresume",
+  "version": "0.1.0",
+  "description": "Save and resume AI coding agent sessions across tools: Claude Code, Codex, opencode, Antigravity/Gemini, Copilot CLI, and more.",
+  "type": "module",
+  "author": "zidniryi <zidniryi123@gmail.com>",
+  "bin": {
+    "agentresume": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup src/cli.ts --format esm --clean",
+    "dev": "tsx src/cli.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test test/**/*.test.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "cli",
+    "claude-code",
+    "codex",
+    "opencode",
+    "ai-agent",
+    "session",
+    "resume",
+    "handoff"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^12.1.0",
+    "gradient-string": "^2.0.2",
+    "ora": "^8.1.1",
+    "picocolors": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/gradient-string": "^1.1.6",
+    "@types/node": "^22.10.2",
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

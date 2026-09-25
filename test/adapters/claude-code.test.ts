@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 const here = dirname(fileURLToPath(import.meta.url));
-process.env.AGENTRESUME_CLAUDE_PROJECTS_DIR = join(here, "..", "fixtures", "claude-code");
+process.env.TUPA_CLAUDE_PROJECTS_DIR = join(here, "..", "fixtures", "claude-code");
 
 const { claudeCodeAdapter } = await import("../../src/adapters/claude-code.js");
 

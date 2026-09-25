@@ -1,4 +1,4 @@
-/** Tools from the CLI agent reference that don't have an adapter yet (see CLAUDE.md). */
+/** Tools known from the CLI agent reference that don't have an adapter yet. */
 export interface PlannedTool {
   id: string;
   name: string;
@@ -6,7 +6,6 @@ export interface PlannedTool {
 
 export const PLANNED_TOOLS: PlannedTool[] = [
   { id: "codex", name: "Codex CLI" },
-  { id: "opencode", name: "opencode" },
   { id: "gemini", name: "Gemini CLI" },
   { id: "copilot", name: "GitHub Copilot CLI" },
   { id: "cursor-agent", name: "Cursor CLI" },

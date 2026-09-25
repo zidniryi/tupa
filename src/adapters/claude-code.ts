@@ -12,7 +12,7 @@ import type {
 import { truncate } from "../util.js";
 
 // Overridable for tests; production always uses the real Claude Code projects dir.
-const PROJECTS_DIR = process.env.AGENTRESUME_CLAUDE_PROJECTS_DIR || join(homedir(), ".claude", "projects");
+const PROJECTS_DIR = process.env.TUPA_CLAUDE_PROJECTS_DIR || join(homedir(), ".claude", "projects");
 
 /** Mirrors Claude Code's own project-dir slugging: path separators and dots become dashes. */
 function slugForCwd(cwd: string): string {

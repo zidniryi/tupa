@@ -14,7 +14,7 @@ without copy-pasting context by hand.
 ```
 $ tupa
   ▄█▄    ▄█▄   tupa
-▐████████████▌ v1.0.0
+▐████████████▌ v1.0.1
 ▐█ ◉ ████ ◉ █▌ /Users/mac/Project
 ▐███▄█▀▀█▄███▌
  ▀██▄◖██◗▄██▀
@@ -28,6 +28,32 @@ Commands
   support        Show which AI coding agent CLIs are supported
 
 Run `tupa <command> --help` for details, or `tupa list` to get started.
+```
+
+```
+$ tupa support
+Supported now
+  ✔ Claude Code        detected on this machine
+  ✔ Antigravity CLI    detected on this machine
+  ✔ opencode           detected on this machine
+
+Planned, not yet supported
+  ○ Codex CLI
+  ○ Gemini CLI
+  ○ GitHub Copilot CLI
+  ○ Cursor CLI
+  ○ Kimi Code CLI
+  ○ Qwen Code
+  ○ Goose
+  ○ Aider
+  ○ Factory Droid
+  ○ Sourcegraph Amp
+  ○ Kiro CLI
+  ○ Crush
+  ○ Pi
+  ○ Mistral Vibe
+
+Adapters are read-only and added one at a time.
 ```
 
 ## Install
@@ -50,9 +76,11 @@ tupa support           # show which AI coding agent CLIs are supported
 
 ## Status
 
-Early scaffold. Claude Code and Antigravity CLI (`agy`) adapters are implemented;
-more tools are added one at a time. Read-only access to other tools' session
-storage, no network calls, no telemetry.
+Early scaffold. Claude Code, Antigravity CLI (`agy`), and opencode adapters are
+implemented; more tools are added one at a time. Read-only access to other tools'
+session storage, no network calls, no telemetry. The opencode adapter uses
+`node:sqlite`, which needs Node >= 22.5 — on older Node it just reports opencode
+as "not detected" instead of failing.
 
 ## Development
 

@@ -4,7 +4,7 @@ import { join } from "node:path";
 import type { Adapter, NormalizedTranscript, SessionSummary } from "../types.js";
 import { truncate } from "../util.js";
 
-const ANTIGRAVITY_DIR = process.env.AGENTRESUME_AGY_DIR || join(homedir(), ".gemini", "antigravity-cli");
+const ANTIGRAVITY_DIR = process.env.TUPA_AGY_DIR || join(homedir(), ".gemini", "antigravity-cli");
 const METADATA_PATH = join(ANTIGRAVITY_DIR, "cache", "conversation_metadata.json");
 const LAST_CONVERSATIONS_PATH = join(ANTIGRAVITY_DIR, "cache", "last_conversations.json");
 const CONVERSATIONS_DIR = join(ANTIGRAVITY_DIR, "conversations");

@@ -1,0 +1,7 @@
+{"type":"session_meta","payload":{"id":"sample-session","cwd":"/tmp/fixture-project","timestamp":"2026-01-01T00:00:01.000Z"}}
+{"type":"response_item","payload":{"type":"message","id":"m0","role":"user","content":[{"type":"input_text","text":"<environment_context>\n  <cwd>/tmp/fixture-project</cwd>\n</environment_context>"}]}}
+{"type":"response_item","payload":{"type":"message","id":"m1","role":"user","content":[{"type":"input_text","text":"Add a health check endpoint to the API"}]}}
+this is not valid json and must be skipped
+{"type":"response_item","payload":{"type":"message","id":"m2","role":"assistant","content":[{"type":"output_text","text":"I'll add a GET /health route."}]}}
+{"type":"response_item","payload":{"type":"status","id":"m3","status":"completed","call_id":"call_1","name":"exec","input":"cat health.ts"}}
+{"type":"response_item","payload":{"type":"message","id":"m4","role":"assistant","content":[{"type":"output_text","text":"Done, added the /health route."}]}}

@@ -5,7 +5,6 @@ export interface PlannedTool {
 }
 
 export const PLANNED_TOOLS: PlannedTool[] = [
-  { id: "codex", name: "Codex CLI" },
   { id: "gemini", name: "Gemini CLI" },
   { id: "copilot", name: "GitHub Copilot CLI" },
   { id: "cursor-agent", name: "Cursor CLI" },

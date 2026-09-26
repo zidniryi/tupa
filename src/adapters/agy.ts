@@ -50,7 +50,14 @@ function readLastConversations(): Record<string, string> {
 
 function uriToPath(uri: string): string | undefined {
   try {
-    return new URL(uri).pathname;
+    let pathname = decodeURIComponent(new URL(uri).pathname);
+    if (process.platform === "win32") {
+      // Windows file:// URIs carry a leading slash, a lowercase drive letter, and
+      // forward slashes (e.g. "/c:/Users/..."); normalize to the native path format
+      // ("C:\\Users\\...") so it matches process.cwd().
+      pathname = pathname.replace(/^\/([a-zA-Z]):/, (_, drive) => `${drive.toUpperCase()}:`).replace(/\//g, "\\");
+    }
+    return pathname;
   } catch {
     return undefined;
   }

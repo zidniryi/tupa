@@ -38,6 +38,9 @@ function candidateDataDirs(dirName: string): string[] {
   if (process.platform === "win32") {
     if (process.env.LOCALAPPDATA) dirs.push(join(process.env.LOCALAPPDATA, dirName));
     if (process.env.APPDATA) dirs.push(join(process.env.APPDATA, dirName));
+    // Bun-built CLIs in this family (opencode, Kilo) hardcode a Unix-style
+    // "~/.local/share" path even when running on Windows, ignoring LOCALAPPDATA/APPDATA.
+    dirs.push(join(home, ".local", "share", dirName));
   } else if (process.platform === "darwin") {
     dirs.push(join(home, ".local", "share", dirName));
     dirs.push(join(home, "Library", "Application Support", dirName));

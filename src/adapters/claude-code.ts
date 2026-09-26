@@ -14,9 +14,10 @@ import { truncate } from "../util.js";
 // Overridable for tests; production always uses the real Claude Code projects dir.
 const PROJECTS_DIR = process.env.TUPA_CLAUDE_PROJECTS_DIR || join(homedir(), ".claude", "projects");
 
-/** Mirrors Claude Code's own project-dir slugging: path separators and dots become dashes. */
+/** Mirrors Claude Code's own project-dir slugging: path separators, dots, and drive-letter
+ * colons (Windows, e.g. "C:\\Users\\...") become dashes. */
 function slugForCwd(cwd: string): string {
-  return cwd.replace(/[\\/.]/g, "-");
+  return cwd.replace(/[\\/.:]/g, "-");
 }
 
 interface RawEntry {
